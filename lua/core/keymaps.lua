@@ -1,7 +1,7 @@
 -- LEADER KEY
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+vim.keymap.set("n", "<leader>pv", vim.cmd.Ex) -- Ex: cartella attuale, Rex: ultima finestra netrw aperta
 vim.keymap.set('n', '<leader>h', ':nohlsearch<CR>')
 -- vim.keymap.set("i", "jk", "<Esc>") -- premere jk per tornare in normal mode
 -- vim.keymap.set("n", "<C-w>", "<C-w>v") -- come su obsidian
@@ -29,6 +29,14 @@ vim.opt.laststatus = 2
 vim.opt.autowrite = true
 vim.opt.cursorline = true
 vim.opt.autoread = true
+-- visualizzare i numeri di linea anche in netrw
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "netrw",
+    callback = function()
+        vim.opt_local.number = true
+        vim.opt_local.relativenumber = true
+    end,
+})
 
 -- USE SPACES FOR TABS AND WHATNOT
 vim.opt.tabstop = 4

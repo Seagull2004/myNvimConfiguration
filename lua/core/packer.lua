@@ -75,4 +75,6 @@ return require('packer').startup(function(use)
     -- GITHUB THEME
     use ({ 'projekt0n/github-nvim-theme' })
 
+    -- LASTPLACE: aprire un file e avere il cursore dove hai fatto ultima modifica
+    use ({ 'farmergreg/vim-lastplace' })
 end)

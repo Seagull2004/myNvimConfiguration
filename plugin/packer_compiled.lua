@@ -179,6 +179,11 @@ _G.packer_plugins = {
     path = "/Users/macpro/.local/share/nvim/site/pack/packer/start/vim-be-good",
     url = "https://github.com/ThePrimeagen/vim-be-good"
   },
+  ["vim-lastplace"] = {
+    loaded = true,
+    path = "/Users/macpro/.local/share/nvim/site/pack/packer/start/vim-lastplace",
+    url = "https://github.com/farmergreg/vim-lastplace"
+  },
   ["vim-visual-multi"] = {
     loaded = true,
     path = "/Users/macpro/.local/share/nvim/site/pack/packer/start/vim-visual-multi",
