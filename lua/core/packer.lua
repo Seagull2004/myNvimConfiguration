@@ -77,4 +77,8 @@ return require('packer').startup(function(use)
 
     -- LASTPLACE: aprire un file e avere il cursore dove hai fatto ultima modifica
     use ({ 'farmergreg/vim-lastplace' })
+
+
+    -- TOKYO
+    use 'folke/tokyonight.nvim'
 end)
