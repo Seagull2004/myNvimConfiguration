@@ -22,4 +22,4 @@ vim.api.nvim_create_autocmd({"InsertLeave", "TextChanged"}, {
     end,
 })
 
-vim.api.nvim_set_keymap("n", "<leader>as", ":lua ToggleAutosave()<CR>", { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap("n", "<leader>", ":lua ToggleAutosave()<CR>", { noremap = true, silent = true })

@@ -149,10 +149,20 @@ _G.packer_plugins = {
     path = "/Users/macpro/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
   },
+  ["nvim-tree.lua"] = {
+    loaded = true,
+    path = "/Users/macpro/.local/share/nvim/site/pack/packer/start/nvim-tree.lua",
+    url = "https://github.com/nvim-tree/nvim-tree.lua"
+  },
   ["nvim-treesitter"] = {
     loaded = true,
     path = "/Users/macpro/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
+  },
+  ["nvim-web-devicons"] = {
+    loaded = true,
+    path = "/Users/macpro/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
+    url = "https://github.com/nvim-tree/nvim-web-devicons"
   },
   ["packer.nvim"] = {
     loaded = true,
@@ -174,10 +184,26 @@ _G.packer_plugins = {
     path = "/Users/macpro/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
+  timerly = {
+    commands = { "TimerlyToggle" },
+    loaded = false,
+    needs_bufread = false,
+    only_cond = false,
+    path = "/Users/macpro/.local/share/nvim/site/pack/packer/opt/timerly",
+    url = "https://github.com/nvzone/timerly"
+  },
   ["tokyonight.nvim"] = {
     loaded = true,
     path = "/Users/macpro/.local/share/nvim/site/pack/packer/start/tokyonight.nvim",
     url = "https://github.com/folke/tokyonight.nvim"
+  },
+  typr = {
+    commands = { "Typr", "TyprStats" },
+    loaded = false,
+    needs_bufread = false,
+    only_cond = false,
+    path = "/Users/macpro/.local/share/nvim/site/pack/packer/opt/typr",
+    url = "https://github.com/nvzone/typr"
   },
   ["vim-be-good"] = {
     loaded = true,
@@ -193,10 +219,41 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/macpro/.local/share/nvim/site/pack/packer/start/vim-visual-multi",
     url = "https://github.com/mg979/vim-visual-multi"
+  },
+  volt = {
+    loaded = true,
+    path = "/Users/macpro/.local/share/nvim/site/pack/packer/start/volt",
+    url = "https://github.com/nvzone/volt"
   }
 }
 
 time([[Defining packer_plugins]], false)
+
+-- Command lazy-loads
+time([[Defining lazy-load commands]], true)
+pcall(vim.api.nvim_create_user_command, 'Typr', function(cmdargs)
+          require('packer.load')({'typr'}, { cmd = 'Typr', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
+        end,
+        {nargs = '*', range = true, bang = true, complete = function()
+          require('packer.load')({'typr'}, {}, _G.packer_plugins)
+          return vim.fn.getcompletion('Typr ', 'cmdline')
+      end})
+pcall(vim.api.nvim_create_user_command, 'TyprStats', function(cmdargs)
+          require('packer.load')({'typr'}, { cmd = 'TyprStats', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
+        end,
+        {nargs = '*', range = true, bang = true, complete = function()
+          require('packer.load')({'typr'}, {}, _G.packer_plugins)
+          return vim.fn.getcompletion('TyprStats ', 'cmdline')
+      end})
+pcall(vim.api.nvim_create_user_command, 'TimerlyToggle', function(cmdargs)
+          require('packer.load')({'timerly'}, { cmd = 'TimerlyToggle', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
+        end,
+        {nargs = '*', range = true, bang = true, complete = function()
+          require('packer.load')({'timerly'}, {}, _G.packer_plugins)
+          return vim.fn.getcompletion('TimerlyToggle ', 'cmdline')
+      end})
+time([[Defining lazy-load commands]], false)
+
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then

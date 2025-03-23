@@ -67,10 +67,8 @@ return require('packer').startup(function(use)
 
     -- FILE TREE
     -- permette di avere una finestra che visualizza sotto forma di albero i file della cartella aperta con vim
-    -- use ('nvim-tree/nvim-tree.lua')
-    -- use ('nvim-tree/nvim-web-devicons')
-    --
-
+    use ('nvim-tree/nvim-tree.lua')
+    use ('nvim-tree/nvim-web-devicons')
 
     -- GITHUB THEME
     use ({ 'projekt0n/github-nvim-theme' })
@@ -78,7 +76,22 @@ return require('packer').startup(function(use)
     -- LASTPLACE: aprire un file e avere il cursore dove hai fatto ultima modifica
     use ({ 'farmergreg/vim-lastplace' })
 
-
     -- TOKYO
     use 'folke/tokyonight.nvim'
+
+    -- TYPR
+    use 'nvzone/volt'
+    use {
+        "nvzone/typr",
+        requires = { "nvzone/volt" },
+        opts = {},
+        cmd = { "Typr", "TyprStats" },
+    }
+
+    -- TIMER
+    use {
+        "nvzone/timerly",
+        opts = {},
+        cmd = { "TimerlyToggle"},
+    }
 end)

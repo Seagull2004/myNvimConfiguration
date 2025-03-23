@@ -7,4 +7,4 @@ require("core.mescalatoreLinee")
 require("core.packer")
 require("core.packer_config")
 require("core.packer_config.colorscheme")
-
+require("core.packer_config.tree")
