@@ -8,7 +8,17 @@ lsp.setup()
 
 require("mason").setup()
 require("mason-lspconfig").setup({
-    ensure_installed = { "lua_ls", "html", "ast_grep", "clangd"}
+    ensure_installed = {
+        "ast_grep",
+        "clangd",
+        "cssls",
+        "html",
+        "jdtls",
+        "harper_ls",
+        "ltex",
+        "lua_ls",
+        "texlab",
+    }
 })
 
 local on_attach = function (_, _)
@@ -21,31 +31,30 @@ local on_attach = function (_, _)
 end
 
 
-local capabilities = require('cmp_nvim_lsp').default_capabilities()
+-- local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
-require("lspconfig").lua_ls.setup {
-    capabilities = capabilities,
-    on_attach = on_attach
-}
-
-require("lspconfig").html.setup {
-    capabilities = capabilities,
-    on_attach = on_attach
-}
-require("lspconfig").ast_grep.setup {
-    capabilities = capabilities,
-    on_attach = on_attach
-}
-require("lspconfig").clangd.setup {
-    capabilities = capabilities,
-    on_attach = on_attach
-}
+-- require("lspconfig").lua_ls.setup {
+--     capabilities = capabilities,
+--     on_attach = on_attach
+-- }
+-- require("lspconfig").html.setup {
+--     capabilities = capabilities,
+--     on_attach = on_attach
+-- }
+-- require("lspconfig").ast_grep.setup {
+--     capabilities = capabilities,
+--     on_attach = on_attach
+-- }
+-- require("lspconfig").clangd.setup {
+--     capabilities = capabilities,
+--     on_attach = on_attach
+-- }
 
 -- Abilita la diagnostica di LSP (messaggi di errore a bordo pagina)
 vim.diagnostic.config({
-    virtual_text = true,  -- Mostra i messaggi di diagnostica inline
-    signs = true,         -- Mostra le icone per i messaggi di diagnostica
-    underline = true,     -- Sottolinea le righe con messaggi di errore o warning
+    virtual_text = false,     -- Mostra i messaggi di diagnostica inline
+    signs = true,             -- Mostra le icone per i messaggi di diagnostica
+    underline = true,         -- Sottolinea le righe con messaggi di errore o warning
     update_in_insert = false, -- Non aggiorna durante la modalità inserimento
 })
 
