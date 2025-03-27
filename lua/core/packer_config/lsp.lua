@@ -17,6 +17,7 @@ require("mason-lspconfig").setup({
         "ltex",
         "lua_ls",
         "texlab",
+        "pyright"
     }
 })
 
