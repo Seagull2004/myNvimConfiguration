@@ -18,6 +18,8 @@ require("mason-lspconfig").setup({
         "ltex",
         "lua_ls",
         "texlab",
+        "ts_ls",
+        "tailwindcss",
         "pyright"
     }
 })
