@@ -12,6 +12,7 @@ require("mason-lspconfig").setup({
         "ast_grep",
         "clangd",
         "cssls",
+        "dockerls",
         "html",
         "jdtls",
         "ltex",

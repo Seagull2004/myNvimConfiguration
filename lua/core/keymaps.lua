@@ -8,6 +8,9 @@ vim.keymap.set('v', '<Leader>cp', '"+y')
 vim.keymap.set('n', '<Leader>cpa', 'ggVG"+y<C-o>')
 vim.keymap.set('n', '<Leader>dd', 'ggdG')
 
+vim.keymap.set('n', '<C-d>', '<C-d>M')
+vim.keymap.set('n', '<C-u>', '<C-u>M')
+
 
 -- MULTI WINDOW
 vim.keymap.set('n', '<Leader>n', '<C-w>v')
