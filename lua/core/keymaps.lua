@@ -8,8 +8,29 @@ vim.keymap.set('v', '<Leader>cp', '"+y')
 vim.keymap.set('n', '<Leader>cpa', 'ggVG"+y<C-o>')
 vim.keymap.set('n', '<Leader>dd', 'ggdG')
 
-vim.keymap.set('n', '<C-d>', '<C-d>M')
-vim.keymap.set('n', '<C-u>', '<C-u>M')
+-- gestire lo scrolling del file in modo che il cursore rimanga centrato
+vim.keymap.set('n', '<C-d>', function()
+    local cur_line = vim.fn.line('.') -- Riga attuale
+    local last_line = vim.fn.line('$') -- Ultima riga
+    local half_page = math.floor(vim.fn.winheight(0) / 2) -- Metà altezza finestra
+
+    if cur_line + half_page >= last_line then
+        vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-d>", true, true, true), "n", false)
+    else
+        vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-d>M", true, true, true), "n", false)
+    end
+end, { silent = true })
+vim.keymap.set('n', '<C-u>', function()
+    local cur_line = vim.fn.line('.') -- Riga attuale
+    local half_page = math.floor(vim.fn.winheight(0) / 2) -- Metà altezza finestra
+
+    if cur_line - half_page <= 1 then
+        vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-u>", true, true, true), "n", false)
+    else
+        vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-u>M", true, true, true), "n", false)
+    end
+end, { silent = true })
+
 
 
 -- MULTI WINDOW
@@ -19,5 +40,3 @@ vim.keymap.set('n', '<C-h>', '<C-w>h')
 -- vim.keymap.set("n", "<leader>a", vim.cmd.tabnew)
 -- vim.keymap.set("n", "<leader>1", ":tabmove 1")
 -- vim.keymap.set("n", "<leader>2", ":tabmove 2")
-
-

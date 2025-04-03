@@ -20,7 +20,8 @@ require("mason-lspconfig").setup({
         "texlab",
         "ts_ls",
         "tailwindcss",
-        "pyright"
+        "pyright",
+        "emmet_ls"
     }
 })
 

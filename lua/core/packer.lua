@@ -94,4 +94,15 @@ return require('packer').startup(function(use)
         opts = {},
         cmd = { "TimerlyToggle"},
     }
+
+    -- TIME TRACKER
+    use "3rd/sqlite.nvim"
+    use  {
+        "3rd/time-tracker.nvim",
+        requires = { "3rd/sqlite.nvim" },
+        opts = {
+            data_file = vim.fn.stdpath("data") .. "/time-tracker.db",
+        },
+        cmd = { 'TimeTracker' },
+    }
 end)
