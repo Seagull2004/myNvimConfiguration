@@ -52,7 +52,7 @@ return require('packer').startup(function(use)
 		}
 	}
 
-	-- VIM VISUAL MULTI
+    -- VIM VISUAL MULTI
     -- multicursore con ricerca utilizzando <C-N>
 	use { 'mg979/vim-visual-multi', branch = 'master' }
 
@@ -96,13 +96,20 @@ return require('packer').startup(function(use)
     }
 
     -- TIME TRACKER
-    use "3rd/sqlite.nvim"
-    use  {
+    use  { "3rd/sqlite.nvim" }
+    use {
         "3rd/time-tracker.nvim",
-        requires = { "3rd/sqlite.nvim" },
         opts = {
             data_file = vim.fn.stdpath("data") .. "/time-tracker.db",
         },
-        cmd = { 'TimeTracker' },
     }
+    -- use "3rd/sqlite.nvim"
+    -- use  {
+    --     "3rd/time-tracker.nvim",
+    --     requires = { "3rd/sqlite.nvim" },
+    --     opts = {
+    --         data_file = vim.fn.stdpath("data") .. "/time-tracker.db",
+    --     },
+    --     cmd = { 'TimeTracker' },
+    -- }
 end)
