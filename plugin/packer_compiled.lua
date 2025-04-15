@@ -184,6 +184,12 @@ _G.packer_plugins = {
     path = "/Users/macpro/.local/share/nvim/site/pack/packer/start/sqlite.nvim",
     url = "https://github.com/3rd/sqlite.nvim"
   },
+  ["tailwind-sorter.nvim"] = {
+    config = { "\27LJ\2\n=\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\20tailwind-sorter\frequire\0" },
+    loaded = true,
+    path = "/Users/macpro/.local/share/nvim/site/pack/packer/start/tailwind-sorter.nvim",
+    url = "https://github.com/laytan/tailwind-sorter.nvim"
+  },
   ["telescope.nvim"] = {
     loaded = true,
     path = "/Users/macpro/.local/share/nvim/site/pack/packer/start/telescope.nvim",
@@ -238,9 +244,20 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: tailwind-sorter.nvim
+time([[Config for tailwind-sorter.nvim]], true)
+try_loadstring("\27LJ\2\n=\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\20tailwind-sorter\frequire\0", "config", "tailwind-sorter.nvim")
+time([[Config for tailwind-sorter.nvim]], false)
 
 -- Command lazy-loads
 time([[Defining lazy-load commands]], true)
+pcall(vim.api.nvim_create_user_command, 'TimerlyToggle', function(cmdargs)
+          require('packer.load')({'timerly'}, { cmd = 'TimerlyToggle', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
+        end,
+        {nargs = '*', range = true, bang = true, complete = function()
+          require('packer.load')({'timerly'}, {}, _G.packer_plugins)
+          return vim.fn.getcompletion('TimerlyToggle ', 'cmdline')
+      end})
 pcall(vim.api.nvim_create_user_command, 'Typr', function(cmdargs)
           require('packer.load')({'typr'}, { cmd = 'Typr', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
         end,
@@ -254,13 +271,6 @@ pcall(vim.api.nvim_create_user_command, 'TyprStats', function(cmdargs)
         {nargs = '*', range = true, bang = true, complete = function()
           require('packer.load')({'typr'}, {}, _G.packer_plugins)
           return vim.fn.getcompletion('TyprStats ', 'cmdline')
-      end})
-pcall(vim.api.nvim_create_user_command, 'TimerlyToggle', function(cmdargs)
-          require('packer.load')({'timerly'}, { cmd = 'TimerlyToggle', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
-        end,
-        {nargs = '*', range = true, bang = true, complete = function()
-          require('packer.load')({'timerly'}, {}, _G.packer_plugins)
-          return vim.fn.getcompletion('TimerlyToggle ', 'cmdline')
       end})
 time([[Defining lazy-load commands]], false)
 

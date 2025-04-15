@@ -112,4 +112,13 @@ return require('packer').startup(function(use)
     --     },
     --     cmd = { 'TimeTracker' },
     -- }
+    --
+
+    -- tailwidn sorter
+    use {
+        'laytan/tailwind-sorter.nvim',
+        requires = {'nvim-treesitter/nvim-treesitter', 'nvim-lua/plenary.nvim'},
+        config = function() require('tailwind-sorter').setup() end,
+        run = 'cd formatter && npm ci && npm run build',
+    }
 end)
