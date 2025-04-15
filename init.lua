@@ -13,6 +13,7 @@ require("core.packer_config.lsp")
 require("core.packer_config.telescope")
 require("core.packer_config.tree")
 require("core.packer_config.treesitter")
+require("core.packer_config.tailwindSorter")
 require("core.packer_config.timeTracker")
 
 
