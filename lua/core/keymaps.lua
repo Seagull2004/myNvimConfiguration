@@ -36,4 +36,6 @@ end, { silent = true })
 vim.keymap.set('n', '<Leader>n', '<C-w>v')
 vim.keymap.set('n', '<C-h>', '<C-w>h')
 vim.keymap.set('n', '<C-l>', '<C-w>l') -- per farlo funzionare è stata modificata la riga 6442 del file /opt/homebrew/Cellar/neovim/0.10.2_1/share/nvim/runtime/autoload/netrw.vim
+vim.keymap.set('n', '<C-j>', '<C-w>j')
+vim.keymap.set('n', '<C-k>', '<C-w>k')
 -- vim.keymap.set("n", "<C-w>", "<C-w>v") -- come su obsidian
