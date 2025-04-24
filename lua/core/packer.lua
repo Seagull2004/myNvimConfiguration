@@ -63,7 +63,7 @@ return require('packer').startup(function(use)
     -- GRUVBOX
     -- simil lunarvim permette di impostare un tema personalizzato
     -- non lo uso siccome sono soddisfatto con il colorscheme attuale
-    -- use ('ellisoleao/gruvbox.nvim')
+    use { "ellisonleao/gruvbox.nvim" }
 
     -- FILE TREE
     -- permette di avere una finestra che visualizza sotto forma di albero i file della cartella aperta con vim

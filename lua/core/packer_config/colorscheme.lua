@@ -72,22 +72,23 @@
 
 
 -- Imposta il colorscheme (deve venire prima)
-vim.cmd.colorscheme("tokyonight")
+-- vim.cmd.colorscheme("tokyonight")
+vim.cmd.colorscheme("gruvbox")
 
 
 
 -- Rimuove lo sfondo e lo rende trasparente
--- vim.cmd [[
---   highlight Normal guibg=none ctermbg=none
---   highlight NormalFloat guibg=none ctermbg=none
---   highlight LineNr guibg=none ctermbg=none
---   highlight SignColumn guibg=none ctermbg=none
---   highlight VertSplit guibg=none ctermbg=none
---   highlight StatusLine guibg=none ctermbg=none
---   highlight NvimTreeNormal guibg=none ctermbg=none
---   highlight NvimTreeNormalNC guibg=none ctermbg=none
---   highlight NvimTreeEndOfBuffer guibg=none ctermbg=none
---   highlight NvimTreeVertSplit guibg=none ctermbg=none
---   highlight NormalNC guibg=none ctermbg=none
--- ]]
---
+vim.cmd [[
+  highlight Normal guibg=none ctermbg=none
+  highlight NormalFloat guibg=none ctermbg=none
+  highlight LineNr guibg=none ctermbg=none
+  highlight SignColumn guibg=none ctermbg=none
+  highlight VertSplit guibg=none ctermbg=none
+  highlight StatusLine guibg=none ctermbg=none
+  highlight NvimTreeNormal guibg=none ctermbg=none
+  highlight NvimTreeNormalNC guibg=none ctermbg=none
+  highlight NvimTreeEndOfBuffer guibg=none ctermbg=none
+  highlight NvimTreeVertSplit guibg=none ctermbg=none
+  highlight NormalNC guibg=none ctermbg=none
+]]
+
