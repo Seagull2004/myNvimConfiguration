@@ -4,8 +4,8 @@ vim.g.maplocalleader = ' '
 -- vim.keymap.set("n", "<leader>pv", vim.cmd.Ex) -- Ex vs Rex
 vim.keymap.set('n', '<leader>h', ':nohlsearch<CR>')
 vim.keymap.set('v', '<Leader>cp', '"+y')
-vim.keymap.set('n', '<Leader>ca', 'gg"+yG<C-o>')
-vim.keymap.set('n', '<Leader>da', 'ggdG')
+vim.keymap.set('n', '<Leader>ca', ':%y+<CR>')
+vim.keymap.set('n', '<Leader>da', ':%d<CR>')
 
 -- gestire lo scrolling del file in modo che il cursore rimanga centrato
 vim.keymap.set('n', '<C-d>', function()
