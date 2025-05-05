@@ -1,5 +1,0 @@
-require("core.packer_config.harpoon")
-require("core.packer_config.lsp")
-require("core.packer_config.telescope")
-require("core.packer_config.treesitter")
-require("core.packer_config.completions")
