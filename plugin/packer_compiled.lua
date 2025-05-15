@@ -49,8 +49,8 @@ local function save_profiles(threshold)
 end
 
 time([[Luarocks path setup]], true)
-local package_path_str = "/Users/macpro/.cache/nvim/packer_hererocks/2.1.1741730670/share/lua/5.1/?.lua;/Users/macpro/.cache/nvim/packer_hererocks/2.1.1741730670/share/lua/5.1/?/init.lua;/Users/macpro/.cache/nvim/packer_hererocks/2.1.1741730670/lib/luarocks/rocks-5.1/?.lua;/Users/macpro/.cache/nvim/packer_hererocks/2.1.1741730670/lib/luarocks/rocks-5.1/?/init.lua"
-local install_cpath_pattern = "/Users/macpro/.cache/nvim/packer_hererocks/2.1.1741730670/lib/lua/5.1/?.so"
+local package_path_str = "/Users/macpro/.cache/nvim/packer_hererocks/2.1.1744318430/share/lua/5.1/?.lua;/Users/macpro/.cache/nvim/packer_hererocks/2.1.1744318430/share/lua/5.1/?/init.lua;/Users/macpro/.cache/nvim/packer_hererocks/2.1.1744318430/lib/luarocks/rocks-5.1/?.lua;/Users/macpro/.cache/nvim/packer_hererocks/2.1.1744318430/lib/luarocks/rocks-5.1/?/init.lua"
+local install_cpath_pattern = "/Users/macpro/.cache/nvim/packer_hererocks/2.1.1744318430/lib/lua/5.1/?.so"
 if not string.find(package.path, package_path_str, 1, true) then
   package.path = package.path .. ';' .. package_path_str
 end
@@ -256,13 +256,6 @@ time([[Config for tailwind-sorter.nvim]], false)
 
 -- Command lazy-loads
 time([[Defining lazy-load commands]], true)
-pcall(vim.api.nvim_create_user_command, 'Typr', function(cmdargs)
-          require('packer.load')({'typr'}, { cmd = 'Typr', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
-        end,
-        {nargs = '*', range = true, bang = true, complete = function()
-          require('packer.load')({'typr'}, {}, _G.packer_plugins)
-          return vim.fn.getcompletion('Typr ', 'cmdline')
-      end})
 pcall(vim.api.nvim_create_user_command, 'TyprStats', function(cmdargs)
           require('packer.load')({'typr'}, { cmd = 'TyprStats', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
         end,
@@ -276,6 +269,13 @@ pcall(vim.api.nvim_create_user_command, 'TimerlyToggle', function(cmdargs)
         {nargs = '*', range = true, bang = true, complete = function()
           require('packer.load')({'timerly'}, {}, _G.packer_plugins)
           return vim.fn.getcompletion('TimerlyToggle ', 'cmdline')
+      end})
+pcall(vim.api.nvim_create_user_command, 'Typr', function(cmdargs)
+          require('packer.load')({'typr'}, { cmd = 'Typr', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
+        end,
+        {nargs = '*', range = true, bang = true, complete = function()
+          require('packer.load')({'typr'}, {}, _G.packer_plugins)
+          return vim.fn.getcompletion('Typr ', 'cmdline')
       end})
 time([[Defining lazy-load commands]], false)
 

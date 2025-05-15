@@ -1,29 +1,28 @@
-local lsp = require('lsp-zero')
-lsp.preset('recommended')
-lsp.setup()
-
+-- local lsp = require('lsp-zero')
+-- lsp.preset('recommended')
+-- lsp.setup()
 
 -- https://www.youtube.com/watch?v=h4g0m0Iwmys
 -- da continuare
 
+
+local LSPs = {
+    "ast_grep",
+    "clangd",
+    "cssls",
+    "dockerls",
+    "html",
+    "jdtls",
+    "ltex",
+    "lua_ls",
+    "texlab",
+    "ts_ls",
+    "tailwindcss",
+    "pyright",
+    "emmet_ls"
+}
 require("mason").setup()
-require("mason-lspconfig").setup({
-    ensure_installed = {
-        "ast_grep",
-        "clangd",
-        "cssls",
-        "dockerls",
-        "html",
-        "jdtls",
-        "ltex",
-        "lua_ls",
-        "texlab",
-        "ts_ls",
-        "tailwindcss",
-        "pyright",
-        "emmet_ls"
-    }
-})
+require("mason-lspconfig").setup({ ensure_installed = LSPs })
 
 local on_attach = function (_, _)
     vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, {})
@@ -54,17 +53,33 @@ local capabilities = require('cmp_nvim_lsp').default_capabilities()
 --     on_attach = on_attach
 -- }
 
+
 -- Abilita la diagnostica di LSP (messaggi di errore a bordo pagina)
 vim.diagnostic.config({
-    virtual_text = false,     -- Mostra i messaggi di diagnostica inline
-    signs = true,             -- Mostra le icone per i messaggi di diagnostica
-    underline = true,         -- Sottolinea le righe con messaggi di errore o warning
-    update_in_insert = false, -- Non aggiorna durante la modalità inserimento
+    virtual_text = false, -- Mostra i messaggi di diagnostica inline
+    signs = true, -- Mostra le icone per i messaggi di diagnostica
+    underline = true, -- Sottolinea gli errori
+    update_in_insert = false, -- Non aggiorna durante insert mode 
 })
 
 -- Shortcut per mostrare i messaggi di diagnostica
-vim.api.nvim_set_keymap('n', '<leader>sp', ':lua vim.diagnostic.open_float()<CR>', { noremap = true, silent = true })
-
--- Shortcut per nascondere i messaggi di diagnostica (se hai bisogno di chiudere il popup)
-vim.api.nvim_set_keymap('n', '<leader>hd', ':lua vim.diagnostic.hide()<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>sd', ':lua vim.diagnostic.show()<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap(
+    'n', 
+    '<leader>sp', 
+    ':lua vim.diagnostic.open_float()<CR>',
+    { noremap = true, silent = true }
+)
+-- Shortcut per nascondere i messaggi di diagnostica 
+-- (se hai bisogno di chiudere il popup)
+vim.api.nvim_set_keymap(
+    'n', 
+    '<leader>hd', 
+    ':lua vim.diagnostic.hide()<CR>', 
+    { noremap = true, silent = true }
+)
+vim.api.nvim_set_keymap(
+    'n',
+    '<leader>sd',
+    ':lua vim.diagnostic.show()<CR>',
+    { noremap = true, silent = true }
+)

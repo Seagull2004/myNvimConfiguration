@@ -4,6 +4,7 @@ require("core.autosave")
 require("core.mescalatoreLinee")
 
 -- PACKER
+require("core.packer")
 require("core.packer_config.colorscheme")
 require("core.packer_config.completions")
 require("core.packer_config.harpoon")
@@ -14,7 +15,6 @@ require("core.packer_config.timeTracker")
 require("core.packer_config.tree")
 require("core.packer_config.treesitter")
 require("core.packer_config.visualMulti")
-
 
 -- GENERAL EDITOR SETTINGS
 vim.opt.number = true

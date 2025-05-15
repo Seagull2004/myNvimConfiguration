@@ -1,7 +1,10 @@
--- This file can be loaded by calling `lua require('plugins')` from your init.lua
+-- This file can be loaded by calling `lua require('packer')` from your init.lua
 -- Only required if you have packer configured as `opt`
 -- :PackerSync per sincronizzare i plugin elencati in questo file
 -- :so per aggiornare la sorgente
+
+-- h rtp -> visualizzare path di esecuzione
+-- ricordati di clonare la repo di packer affinché il comandi qui sotto funzioni
 vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
@@ -22,15 +25,15 @@ return require('packer').startup(function(use)
 	use ('nvim-treesitter/playground')
 
 	-- VIMBEGOOD
-    -- esercitati con le vim motion!
+	   	-- esercitati con le vim motion!
 	use ('ThePrimeagen/vim-be-good')
 
-    -- HARPOON
-    -- serve per salvare dei file in un buffer che permette di accedervi velocemente
-    use ('ThePrimeagen/harpoon')
+	   	-- HARPOON
+	   	-- serve per salvare dei file in un buffer che permette di accedervi velocemente
+	   	use ('ThePrimeagen/harpoon')
 
 	-- LSP, Language Server Protocol
-    -- Snippets!!
+	   	-- Snippets!!
 	use {
 		'VonHeikemen/lsp-zero.nvim',
 		branch = 'v1.x',
@@ -52,73 +55,73 @@ return require('packer').startup(function(use)
 		}
 	}
 
-    -- VIM VISUAL MULTI
-    -- multicursore con ricerca utilizzando <C-N>
+	   -- VIM VISUAL MULTI
+	   -- multicursore con ricerca utilizzando <C-N>
 	use { 'mg979/vim-visual-multi', branch = 'master' }
 
 	-- LUNARVIM
 	-- è un plugin che permette di cambiare il tema dell'editor
-    use ("lunarvim/colorschemes")
+	   use ("lunarvim/colorschemes")
 
-    -- GRUVBOX
-    -- simil lunarvim permette di impostare un tema personalizzato
-    -- non lo uso siccome sono soddisfatto con il colorscheme attuale
-    use { "ellisonleao/gruvbox.nvim" }
+	   -- GRUVBOX
+	   -- simil lunarvim permette di impostare un tema personalizzato
+	   -- non lo uso siccome sono soddisfatto con il colorscheme attuale
+	   use { "ellisonleao/gruvbox.nvim" }
 
-    -- FILE TREE
-    -- permette di avere una finestra che visualizza sotto forma di albero i file della cartella aperta con vim
-    use ('nvim-tree/nvim-tree.lua')
-    use ('nvim-tree/nvim-web-devicons')
+	   -- FILE TREE
+	   -- permette di avere una finestra che visualizza sotto forma di albero i file della cartella aperta con vim
+	   use ('nvim-tree/nvim-tree.lua')
+	   use ('nvim-tree/nvim-web-devicons')
 
-    -- GITHUB THEME
-    use ({ 'projekt0n/github-nvim-theme' })
+	   -- GITHUB THEME
+	   use ({ 'projekt0n/github-nvim-theme' })
 
-    -- LASTPLACE: aprire un file e avere il cursore dove hai fatto ultima modifica
-    use ({ 'farmergreg/vim-lastplace' })
+	   -- LASTPLACE: aprire un file e avere il cursore dove hai fatto ultima modifica
+	   use ({ 'farmergreg/vim-lastplace' })
 
-    -- TOKYO
-    use 'folke/tokyonight.nvim'
+	   -- TOKYO
+	   use 'folke/tokyonight.nvim'
 
-    -- TYPR
-    use 'nvzone/volt'
-    use {
-        "nvzone/typr",
-        requires = { "nvzone/volt" },
-        opts = {},
-        cmd = { "Typr", "TyprStats" },
-    }
+	   -- TYPR
+	   use 'nvzone/volt'
+	   use {
+	       "nvzone/typr",
+	       requires = { "nvzone/volt" },
+	       opts = {},
+	       cmd = { "Typr", "TyprStats" },
+	   }
 
-    -- TIMER
-    use {
-        "nvzone/timerly",
-        opts = {},
-        cmd = { "TimerlyToggle"},
-    }
+	   -- TIMER
+	   use {
+	       "nvzone/timerly",
+	       opts = {},
+	       cmd = { "TimerlyToggle"},
+	   }
 
-    -- TIME TRACKER
-    use  { "3rd/sqlite.nvim" }
-    use {
-        "3rd/time-tracker.nvim",
-        opts = {
-            data_file = vim.fn.stdpath("data") .. "/time-tracker.db",
-        },
-    }
-    -- use "3rd/sqlite.nvim"
-    -- use  {
-    --     "3rd/time-tracker.nvim",
-    --     requires = { "3rd/sqlite.nvim" },
-    --     opts = {
-    --         data_file = vim.fn.stdpath("data") .. "/time-tracker.db",
-    --     },
-    --     cmd = { 'TimeTracker' },
-    -- }
-    --
+	   -- TIME TRACKER
+	   use  { "3rd/sqlite.nvim" }
+	   use {
+	       "3rd/time-tracker.nvim",
+	       opts = {
+	           data_file = vim.fn.stdpath("data") .. "/time-tracker.db",
+	       },
+	   }
+	   -- use "3rd/sqlite.nvim"
+	   -- use  {
+	   --     "3rd/time-tracker.nvim",
+	   --     requires = { "3rd/sqlite.nvim" },
+	   --     opts = {
+	   --         data_file = vim.fn.stdpath("data") .. "/time-tracker.db",
+	   --     },
+	   --     cmd = { 'TimeTracker' },
+	   -- }
+	   --
 
-    -- tailwidn sorter
-    use {
-        'laytan/tailwind-sorter.nvim',
-        requires = {'nvim-treesitter/nvim-treesitter', 'nvim-lua/plenary.nvim'},
-        config = function() require('tailwind-sorter').setup() end,
-        run = 'cd formatter && npm ci && npm run build',
-    }
+	   -- tailwidn sorter
+	   use {
+	       'laytan/tailwind-sorter.nvim',
+	       requires = {'nvim-treesitter/nvim-treesitter', 'nvim-lua/plenary.nvim'},
+	       config = function() require('tailwind-sorter').setup() end,
+	       run = 'cd formatter && npm ci && npm run build',
+	   }
 end)
